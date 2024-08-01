@@ -58,7 +58,7 @@ start() {
   fi
 
   ssh-keygen -A && $(type -P sshd)
-  ntpd -p /run/ntpd.pid
+  ntpd -p /run/ntpd.pid -s
   daemon /etc/wireguard
   test -w / && users start
 
