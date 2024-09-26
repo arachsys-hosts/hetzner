@@ -6,10 +6,10 @@ dtc
 e2fsprogs
 file
 flex
+fping
 fzf
 git
 iproute2
-iputils-ping
 kakoune
 ldns-tools
 libelf
