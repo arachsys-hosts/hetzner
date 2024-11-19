@@ -1,11 +1,23 @@
-#!/bin/bash -e
+[Interface]
+ListenPort = 51280
+PrivateKey = AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
 
-ip link add wg0 type wireguard
-wg set wg0 listen-port 51280 private-key /dev/stdin \
-  <<< "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+[Peer]
+AllowedIPs = 2a01:4f8:c17:ac0f::a
+PublicKey = AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
 
-wg set wg0 peer "MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDA=" \
-  allowed-ips 2a01:4f8:c17:ac0f::a
+[Peer]
+AllowedIPs = 2a01:4f8:c17:ac0f::b
+PublicKey = AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
 
-ip link set wg0 up
-ip address add 2a01:4f8:c17:ac0f::1/64 dev wg0
+[Peer]
+AllowedIPs = 2a01:4f8:c17:ac0f::c
+PublicKey = AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+
+[Peer]
+AllowedIPs = 2a01:4f8:c17:ac0f::d
+PublicKey = AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+
+[Peer]
+AllowedIPs = 2a01:4f8:c17:ac0f::10
+PublicKey = AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
