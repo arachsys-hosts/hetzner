@@ -1,17 +1,19 @@
 System info
 ===========
 
-hetzner is an arm64 virtual machine on an Heztner Ampere Altra host in
-Falkenstein, with 2 vCPUs, 4G RAM, 40G virtio scsi disk and virtio network.
+shelob and iktomi are arm64 virtual machines on Heztner Ampere Altra
+hosts in Falkenstein, each with 2 vCPUs, 4G RAM, 40G virtio scsi disk
+and virtio network.
 
-The disk is GPT partitioned with a 512M vfat /boot, and the kernel is booted
-directly from /boot/efi/boot/bootaa64.efi by the UEFI BIOS. The command line
+The disks are GPT partitioned with a 512M vfat /boot, and the kernel
+is booted directly from /boot/efi/boot/bootaa64.efi by the UEFI BIOS.
+The command line
 
   console=tty0 loglevel=2 root=PARTLABEL=root
 
 is compiled into the kernel as boot entries cannot be configured manually.
 
-It is possible to netboot the VM from a Debian recovery image from the
+It is possible to netboot the VMs from a Debian recovery image from the
 web interface at https://console.hetzner.cloud/ - this can be used for
 initial installation and emergency maintenance.
 

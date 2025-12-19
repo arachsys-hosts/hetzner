@@ -5,7 +5,7 @@ export PATH=/bin
 
 case "$1" in
   start | "")
-    hostname hetzner
+    hostname shelob
     ctrlaltdel soft
 
     mount -a -t proc
@@ -55,6 +55,9 @@ case "$1" in
 
     ssh-keygen -A && $(type -P sshd)
     ntpd -p /run/ntpd.pid -s
+
+    udpdns -d /etc/microdns -u dns 49.13.60.179 2a01:4f8:c17:ac0f::1
+    tcpdns -d /etc/microdns -u dns 49.13.60.179 2a01:4f8:c17:ac0f::1
 
     daemon "$0" watchdog
     daemon "$0" wireguard
